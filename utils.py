@@ -1,10 +1,7 @@
 import logging
 import pickle
 import time
-from typing import Tuple
-
 import numpy
-from sympy import false
 
 
 def get_logger(dataset):
@@ -58,7 +55,6 @@ def decode(outputs:numpy.array, entities:numpy.array, length:numpy.array):
 
     for instance, ent_set, l in zip(outputs, entities, length):
         results=[]
-        #print('xxxxxxx\n',instance)
         for end in range(l):
             for start in range(end+1):
                 type_id=numpy.argmax(instance[start][end])
@@ -82,14 +78,10 @@ def decode(outputs:numpy.array, entities:numpy.array, length:numpy.array):
                 predicts.append( (list(range(results[i][0][0],results[i][0][1]+1)) , results[i][1]) )
 
         predicts = set([convert_index_to_text(x[0], x[1]) for x in predicts])
-        #print('\n---------\npredicts: ', predicts)
-        #print('\n---------\nent_set: ', ent_set)
         decode_entities.append([convert_text_to_index(x) for x in predicts])
         ent_r += len(ent_set)
         ent_p += len(predicts)
         ent_c += len(predicts.intersection(ent_set))
-        #print('\n---------\nresults: ', results)
-
 
     return ent_c, ent_p, ent_r, decode_entities
 

@@ -8,7 +8,7 @@ import prettytable as pt
 from transformers import AutoTokenizer
 import os
 import utils
-import  suffix_labelling
+import  suffix_labeling
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 dis2idx = np.zeros((1000), dtype='int64')
@@ -174,7 +174,7 @@ def process_bert(data, tokenizer, vocab, is_trainset = False):
         grid_labels.append(_grid_labels)
 
         # soft_labels
-        sl = suffix_labelling.SL(_grid_labels,length,vocab.__len__())
+        sl = suffix_labeling.SL(_grid_labels,length,vocab.__len__())
         _grid_soft_labels = sl.sl_and_ls() if is_trainset else np.zeros((1,1,1),dtype=int)
         grid_soft_labels.append(_grid_soft_labels)
 

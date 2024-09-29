@@ -15,7 +15,7 @@ import config
 import data_loader
 import utils
 from model import Model
-import suffix_labelling
+import suffix_labeling
 
 class Trainer(object):
     def __init__(self, model):
@@ -58,7 +58,7 @@ class Trainer(object):
 
             #soft loss
             grid_mask2d = grid_mask2d.clone()
-            loss=suffix_labelling.soft_crossEntropyLoss(grid_soft_labels[grid_mask2d],outputs[grid_mask2d])
+            loss=suffix_labeling.soft_crossEntropyLoss(grid_soft_labels[grid_mask2d],outputs[grid_mask2d])
 
             loss.backward()
             torch.nn.utils.clip_grad_norm_(self.model.parameters(), config.clip_grad_norm)
@@ -288,7 +288,7 @@ if __name__ == '__main__':
         for i, dataset in enumerate(datasets)
     )
 
-    updates_total = len(datasets[0]) // config.batch_size * config.epochs
+    updates_total = len(datasets[0]) # config.batch_size * config.epochs
 
     logger.info("Building Model")
     model = Model(config)
