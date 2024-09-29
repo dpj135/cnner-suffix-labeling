@@ -1,5 +1,5 @@
 {
-  "dataset": "conll03",
+  "dataset": "test",
   "save_path": "model.pt",
   "predict_path": "output.json",
 

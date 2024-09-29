@@ -39,7 +39,7 @@ class Config:
         self.seed = config["seed"]
 
         for k, v in args.__dict__.items():
-            if v is not None:
+            if v is not None :
                 self.__dict__[k] = v
 
     def __repr__(self):

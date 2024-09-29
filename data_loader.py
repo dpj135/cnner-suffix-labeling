@@ -173,7 +173,7 @@ def process_bert(data, tokenizer, vocab, is_trainset = False):
         bert_inputs.append(_bert_inputs)
         grid_labels.append(_grid_labels)
 
-        # soft_labels
+        # hard_lables -> soft_labels by suffix_labeling
         sl = suffix_labeling.SL(_grid_labels,length,vocab.__len__())
         _grid_soft_labels = sl.sl_and_ls() if is_trainset else np.zeros((1,1,1),dtype=int)
         grid_soft_labels.append(_grid_soft_labels)

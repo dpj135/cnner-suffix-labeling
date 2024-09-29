@@ -75,7 +75,7 @@ class Trainer(object):
             pred_result.append(outputs.cpu())
 
             self.scheduler.step()
-
+            #torch.cuda.empty_cache() 清除显存缓存
         label_result = torch.cat(label_result)
         pred_result = torch.cat(pred_result)
 

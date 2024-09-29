@@ -50,7 +50,7 @@ def convert_text_to_index(text):
 
 def decode(outputs:numpy.array, entities:numpy.array, length:numpy.array):
     ent_r, ent_p, ent_c = 0, 0, 0
-    confidence=0.3
+    confidence=0.3#置信度
     decode_entities = []
 
     for instance, ent_set, l in zip(outputs, entities, length):
@@ -61,14 +61,14 @@ def decode(outputs:numpy.array, entities:numpy.array, length:numpy.array):
                 if type_id>0 and instance[start][end][type_id]>confidence:
                     results.append( ( (start, end) , type_id, instance[start][end][type_id]) )
         results.sort(key=lambda x: x[2],reverse=True)
-        def is_overlapping(x,y):
+        def is_overlapping(x,y):#处理实体边界冲突
             if x[0]>y[0]:
                 x,y = y,x
             if x[0]<y[0] and x[1]<y[1] and x[1]>=y[0]:
                 return True
             return False
         predicts=[]
-        for i in range(len(results)):
+        for i in range(len(results)):#降序解码
             is_ok=True
             for j in range(i):
                 if is_overlapping(results[i][0],results[j][0]):
