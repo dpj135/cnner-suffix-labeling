@@ -16,8 +16,8 @@
   "conv_dropout": 0.5,
   "out_dropout": 0.33,
 
-  "epochs": 15,
-  "batch_size": 24,
+  "epochs": 10,
+  "batch_size": 12,
 
   "learning_rate": 1e-3,
   "weight_decay": 0,
