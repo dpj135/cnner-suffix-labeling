@@ -1,6 +1,8 @@
 # Chinese Nested Named Entity Recognition Based on Suffix Labeling
-Our code mainly refers to [W2NER](https://github.com/ljynlp/W2NER) \
-We optimize the span-based approach using the suffix labeling method,aiming to improve the performance of Chinese NER
+Our code mainly refers to [W2NER](https://github.com/ljynlp/W2NER).\
+We optimize the span-based approach using the suffix labeling method,aiming to improve the performance of Chinese NER.\
+\
+Paper:https://ieeexplore.ieee.org/abstract/document/10800298
 ## Environments
 - python 3.8.19
 - pytorch 2.4.0+cu118
