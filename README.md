@@ -28,3 +28,16 @@ We have provided configuration files about Weibo, Resume, OntoNotes4 and CMeEE-V
 python main.py --config ./configs/example.json
 ```
 The experiment records are stored in the directory **train_logs/**
+
+## Citation
+If you use this codebase, or otherwise find our work valuable, please cite our paper:
+```tex
+@inproceedings{diao2024chinese,
+  title={Chinese Nested Named Entity Recognition Based on Suffix Labeling},
+  author={Diao, Pengjie and Zhang, Wanfeng and Li, Shengyang and Liu, Yunfei and Tang, Decheng},
+  booktitle={2024 7th International Conference on Machine Learning and Natural Language Processing (MLNLP)},
+  pages={1--6},
+  year={2024},
+  organization={IEEE}
+}
+```
